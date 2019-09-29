@@ -9,8 +9,8 @@
 		<xs:element name="componentGroup">
 			<xs:simpleType>
 				<xs:restriction base="xs:string">
-					<xs:enumeration value="input-device"/>
-					<xs:enumeration value="output-device"/>
+					<xs:enumeration value="input_device"/>
+					<xs:enumeration value="output_device"/>
 				</xs:restriction>
 			</xs:simpleType>
 		</xs:element>
