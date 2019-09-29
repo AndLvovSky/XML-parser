@@ -1,3 +1,5 @@
+package com.andlvovsky.domain;
+
 public class Device {
 
 	public static class Type {
