@@ -25,6 +25,15 @@ public class XmlTag {
 		tags.add(tag);
 	}
 
+	public void addAttribute(XmlAttribute attr) {
+		attrs.add(attr);
+	}
+
+	public void setText(String text) {
+		containsText = true;
+		this.text = text;
+	}
+
 	public String getAttributeValue(String name) {
 		XmlAttribute attr = getAttribute(name);
 		return attr == null ? null : attr.value;

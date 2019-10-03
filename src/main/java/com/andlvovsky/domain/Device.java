@@ -8,7 +8,7 @@ public class Device {
 
 			INPUT_DEVICE,
 
-			COMPONENT_DEVICE
+			OUTPUT_DEVICE
 
 		}
 
@@ -46,6 +46,10 @@ public class Device {
 			return energyConsumption;
 		}
 
+		public void setEnergyConsumption(int energyConsumption) {
+			this.energyConsumption = energyConsumption;
+		}
+
 		public boolean isWithCooler() {
 			return withCooler;
 		}
@@ -56,6 +60,10 @@ public class Device {
 
 		public ComponentGroup getComponentGroup() {
 			return componentGroup;
+		}
+
+		public void setComponentGroup(ComponentGroup componentGroup) {
+			this.componentGroup = componentGroup;
 		}
 
 		public Port getPort() {
@@ -91,6 +99,10 @@ public class Device {
 
 	public boolean isCritical() {
 		return critical;
+	}
+
+	public void setCritical(boolean critical) {
+		this.critical = critical;
 	}
 
 	public String getName() {
