@@ -40,20 +40,31 @@ public class XmlParser {
 		tag.attrs = attrs;
 		xml = xml.replaceFirst(xml.substring(l1, r1 + 1), "");
 		if (onlyAttr) return new XmlCut(tag, xml);
-		int l2, r2, i = 0;
-		while (true) {
-			l2 = xml.indexOf("</", i);
-			if (l2 == -1) return null;
-			r2 = xml.indexOf(">", l2);
-			if (r2 == -1) return null;
-			if (xml.substring(l2 + 2, r2).trim().equals(name)) {
-				break;
-			} else {
-				i = r2 + 1;
+		int l2 = 0, r2 = 0, i = 0, balance = 1;
+		boolean flag = false;
+		while (i < xml.length()) {
+			if (xml.substring(i, i + name.length() + 1).equals("<" + name)) {
+				int cl = xml.indexOf("/>", i ), op = xml.indexOf("<", i + 1);
+				if (cl == -1 || cl > op) {
+					balance++;
+				}
+			} else if (xml.substring(i, i + name.length() + 3).equals("</" + name + ">")) {
+				balance--;
+				flag = true;
 			}
+			if (balance != 0 || !flag) {
+				flag = false;
+				i++;
+				continue;
+			}
+			l2 = i;
+			r2 = l2 + name.length() + 2;
+			break;
 		}
 		String last = xml.substring(r2 + 1, xml.length());
-		xml = xml.replaceFirst(xml.substring(l2, xml.length()), "");
+		StringBuilder newXml = new StringBuilder(xml.substring(0, l2));
+		newXml.replace(l2, r2 + 1, "");
+		xml = newXml.toString();
 		List<XmlTag> tags = new ArrayList<>();
 		while (true) {
 			XmlCut cut = cutFirstTag(xml);

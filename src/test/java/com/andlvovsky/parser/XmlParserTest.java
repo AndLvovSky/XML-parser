@@ -57,5 +57,13 @@ public class XmlParserTest {
         assertEquals("USA", tag.tags.get(1).text);
         assertEquals("50", tag.tags.get(3).tags.get(1).text);
     }
+    
+    @Test
+    public void parseNestedElement() {
+        String xml = "<abc><abc>yes</abc><abc>no</abc></abc>";
+        XmlTag tag = XmlParser.parseTag(xmlHeader + xml);
+        System.out.println(tag);
+        assertEquals("yes", tag.tags.get(0).text);
+    }
 
 }

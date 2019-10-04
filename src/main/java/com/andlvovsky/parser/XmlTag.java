@@ -21,17 +21,20 @@ public class XmlTag {
 		this.name = name;
 	}
 
-	public void addTag(XmlTag tag) {
+	public XmlTag addTag(XmlTag tag) {
 		tags.add(tag);
+		return this;
 	}
 
-	public void addAttribute(XmlAttribute attr) {
+	public XmlTag addAttribute(XmlAttribute attr) {
 		attrs.add(attr);
+		return this;
 	}
 
-	public void setText(String text) {
+	public XmlTag setText(String text) {
 		containsText = true;
 		this.text = text;
+		return this;
 	}
 
 	public String getAttributeValue(String name) {
@@ -48,7 +51,7 @@ public class XmlTag {
 		return toString(0);
 	}
 
-	private XmlAttribute getAttribute(String name) {
+	public XmlAttribute getAttribute(String name) {
 		for (XmlAttribute attr : attrs) {
 			if (attr.name.equals(name)) {
 				return attr;
@@ -69,7 +72,7 @@ public class XmlTag {
 		}
 		res += ">\n";
 		if (containsText) {
-		    res += text + "\n";
+		    res += new String(new char[(depth + 1) * 4]).replace("\0", " ") + text + "\n";
         } else {
             for (XmlTag tag : tags) {
                 res += tag.toString(depth + 1);

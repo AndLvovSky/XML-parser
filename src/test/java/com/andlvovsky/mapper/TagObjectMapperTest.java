@@ -1,7 +1,8 @@
-package com.andlvovsky.parser;
+package com.andlvovsky.mapper;
 
 import com.andlvovsky.domain.Device;
-import com.andlvovsky.mapper.TagObjectMapper;
+import com.andlvovsky.parser.XmlAttribute;
+import com.andlvovsky.parser.XmlTag;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
