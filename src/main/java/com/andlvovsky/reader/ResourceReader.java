@@ -7,7 +7,7 @@ import java.net.URLDecoder;
 
 public class ResourceReader {
 
-    private static String getFilename(String filename) {
+    public static String getFilename(String filename) {
         ClassLoader classLoader =
                 Thread.currentThread().getContextClassLoader();
         URL url = classLoader.getResource(filename);

@@ -185,20 +185,16 @@ public class XmlXsdValidatorTest {
 
     @Test
     public void validateDevice() {
-        String xsdStr = ResourceReader.readText("xsd/device.xsd");
-        XmlTag xsd = XmlParser.parseTag(xmlHeader + xsdStr);
-        String xmlStr = ResourceReader.readText("xml/valid_device.xml");
-        XmlTag xml = XmlParser.parseTag(xmlHeader + xmlStr);
+        XmlTag xsd = XmlParser.parseTag("xsd/device.xsd");
+        XmlTag xml = XmlParser.parseTag("xml/valid_device.xml");
         XmlXsdValidator validator = new XmlXsdValidator(xsd);
         validator.validate(xml);
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void deviceValidationFails() {
-        String xsdStr = ResourceReader.readText("xsd/device.xsd");
-        XmlTag xsd = XmlParser.parseTag(xmlHeader + xsdStr);
-        String xmlStr = ResourceReader.readText("xml/invalid_device.xml");
-        XmlTag xml = XmlParser.parseTag(xmlHeader + xmlStr);
+        XmlTag xsd = XmlParser.parseTag("xsd/device.xsd");
+        XmlTag xml = XmlParser.parseTag("xml/invalid_device.xml");
         XmlXsdValidator validator = new XmlXsdValidator(xsd);
         validator.validate(xml);
     }
