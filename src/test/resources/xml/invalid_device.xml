@@ -2,7 +2,7 @@
 
 <device id="id-1" critical="true"
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-xsi:noNamespaceSchemaLocation="device.xsd">
+xsi:noNamespaceSchemaLocation="../xsd/device.xsd">
 	<name>Display AGK-1203, 20 inch, IPS</name>
 	<origin>USA</origin>
 	<price>200.75</price>
@@ -10,7 +10,7 @@ xsi:noNamespaceSchemaLocation="device.xsd">
 		<periphery>true</periphery>
 		<energyConsumption>50</energyConsumption>
 		<withCooler>false</withCooler>
-		<componentGroup>interesting_device</componentGroup>
+		<componentGroup>INTERESTING_DEVICE</componentGroup>
 		<port>VGA</port>
 	</type>
 </device>

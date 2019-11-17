@@ -1,37 +1,37 @@
 package com.andlvovsky.parser;
 
-import com.andlvovsky.adapter.DomXmlTagAdapter;
-import com.andlvovsky.reader.ResourceReader;
 import org.w3c.dom.Document;
 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
 import java.io.ByteArrayInputStream;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+
 public class XmlParser {
 
-	public static XmlTag parseTag(String filename) {
-		String localFilename = ResourceReader.getFilename(filename);
+	private XmlParser() {}
+
+	public static Document parseDom(String filename) {
 		InputStream inputStream;
 		try {
-			inputStream = new FileInputStream(localFilename);
+			inputStream = new FileInputStream(filename);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 			return null;
 		}
-		return parseTag(inputStream);
+		return parseDom(inputStream);
 	}
 
-	public static XmlTag parseTagFromString(String xml) {
+	public static Document parseTagFromString(String xml) {
 		InputStream inputStream = new ByteArrayInputStream(xml.getBytes());
-		return parseTag(inputStream);
+		return parseDom(inputStream);
 	}
 
-	public static XmlTag parseTag(InputStream inputStream) {
+	public static Document parseDom(InputStream inputStream) {
 		DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder documentBuilder;
 		try {
@@ -47,7 +47,7 @@ public class XmlParser {
 			e.printStackTrace();
 			return null;
 		}
-		return DomXmlTagAdapter.getXmlTag(document);
+		return document;
 	}
 
 }

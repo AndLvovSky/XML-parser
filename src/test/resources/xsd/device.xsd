@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
-
 	<xs:complexType name="typeTemplate">
 		<xs:all>
 			<xs:element name="periphery" type="xs:boolean"/>
@@ -9,8 +8,8 @@
 			<xs:element name="componentGroup">
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
-						<xs:enumeration value="input_device"/>
-						<xs:enumeration value="output_device"/>
+						<xs:enumeration value="INPUT_DEVICE"/>
+						<xs:enumeration value="OUTPUT_DEVICE"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
@@ -46,5 +45,4 @@
 			<xs:attribute name="critical" type="xs:boolean"/>
 		</xs:complexType>
 	</xs:element>
-
 </xs:schema>

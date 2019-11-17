@@ -1,39 +1,33 @@
 package com.andlvovsky.domain;
 
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name = "device")
 public class Device {
 
 	public static class Type {
 
 		public static enum ComponentGroup {
-
 			INPUT_DEVICE,
-
 			OUTPUT_DEVICE
-
 		}
 
 		public static enum Port {
-
 			COM,
-
 			USB,
-
 			LPT,
-
 			VGA
-
 		}
 
 		private boolean periphery;
-
 		private int energyConsumption;
-
 		private boolean withCooler;
-
 		private ComponentGroup componentGroup;
-
 		private Port port;
 
+		@XmlElement
 		public boolean isPeriphery() {
 			return periphery;
 		}
@@ -42,6 +36,7 @@ public class Device {
 			this.periphery = periphery;
 		}
 
+		@XmlElement
 		public int getEnergyConsumption() {
 			return energyConsumption;
 		}
@@ -50,6 +45,7 @@ public class Device {
 			this.energyConsumption = energyConsumption;
 		}
 
+		@XmlElement
 		public boolean isWithCooler() {
 			return withCooler;
 		}
@@ -58,6 +54,7 @@ public class Device {
 			this.withCooler = withCooler;
 		}
 
+		@XmlElement
 		public ComponentGroup getComponentGroup() {
 			return componentGroup;
 		}
@@ -66,6 +63,7 @@ public class Device {
 			this.componentGroup = componentGroup;
 		}
 
+		@XmlElement
 		public Port getPort() {
 			return port;
 		}
@@ -78,17 +76,13 @@ public class Device {
 	}
 
 	private String id;
-
 	private boolean critical;
-
 	private String name;
-
 	private String origin;
-
 	private double price;
-
 	private Type type;
 
+	@XmlAttribute
 	public String getId() {
 		return id;
 	}
@@ -97,6 +91,7 @@ public class Device {
 		this.id = id;
 	}
 
+	@XmlAttribute
 	public boolean isCritical() {
 		return critical;
 	}
@@ -105,6 +100,7 @@ public class Device {
 		this.critical = critical;
 	}
 
+	@XmlElement
 	public String getName() {
 		return name;
 	}
@@ -113,6 +109,7 @@ public class Device {
 		this.name = name;
 	}
 
+	@XmlElement
 	public String getOrigin() {
 		return origin;
 	}
@@ -121,6 +118,7 @@ public class Device {
 		this.origin = origin;
 	}
 
+	@XmlElement
 	public double getPrice() {
 		return price;
 	}
@@ -129,6 +127,7 @@ public class Device {
 		this.price = price;
 	}
 
+	@XmlElement
 	public Type getType() {
 		return type;
 	}
