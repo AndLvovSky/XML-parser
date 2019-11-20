@@ -1,6 +1,8 @@
 package com.andlvovsky.parser;
 
+import com.andlvovsky.domain.Device;
 import com.andlvovsky.exception.XmlParserException;
+import com.andlvovsky.mapper.XmlDeviceDomMapper;
 
 import org.w3c.dom.Document;
 
@@ -10,14 +12,26 @@ import java.io.InputStream;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
-public class XmlParserDom implements XmlParser {
-	
-	public Document parse(String filename) {
+public class XmlDeviceParserDom implements XmlDeviceParser {
+
+	private XmlDeviceDomMapper mapper;
+
+	public XmlDeviceParserDom(XmlDeviceDomMapper mapper) {
+		this.mapper = mapper;
+	}
+
+	@Override
+	public Device parse(String filename) {
+		Document document = parseDom(filename);
+		return mapper.toDevice(document);
+	}
+
+	private Document parseDom(String filename) {
 		try {
 			InputStream inputStream = new FileInputStream(filename);
 			return parse(inputStream);
 		} catch (Exception e) {
-			throw new XmlParserException("Parsing with dom parser failed", e);
+			throw new XmlParserException("Parsing device failed with dom parser", e);
 		}
 	}
 	

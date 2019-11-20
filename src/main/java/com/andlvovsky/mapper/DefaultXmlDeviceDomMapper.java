@@ -1,21 +1,13 @@
 package com.andlvovsky.mapper;
 
 import com.andlvovsky.domain.Device;
-import com.andlvovsky.parser.XmlParser;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
-public class XmlDeviceMapper {
+public class DefaultXmlDeviceDomMapper implements XmlDeviceDomMapper {
 
-    private XmlParser parser;
-
-    public XmlDeviceMapper(XmlParser parser) {
-        this.parser = parser;
-    }
-
-    public Device toDevice(String xmlFilename) {
-        Document document = parser.parse(xmlFilename);
+    public Device toDevice(Document document) {
         Device device = createDevice(document);
         return device;
     }

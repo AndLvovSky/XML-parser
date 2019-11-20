@@ -1,19 +1,21 @@
-package com.andlvovsky.mapper;
+package com.andlvovsky.parser;
 
 import com.andlvovsky.domain.Device;
-import com.andlvovsky.parser.XmlParserDom;
+import com.andlvovsky.mapper.DefaultXmlDeviceDomMapper;
+import com.andlvovsky.mapper.XmlDeviceDomMapper;
 import com.andlvovsky.util.ResourceHelper;
 
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class XmlObjectMapperTest {
+public class XmlDeviceParserDomTest {
 
     @Test
-    public void mapDevice(){
-        XmlDeviceMapper mapper = new XmlDeviceMapper(new XmlParserDom());
-        Device device =  mapper.toDevice(ResourceHelper.getFilename("xml/valid_device.xml"));
+    public void parseDevice(){
+        XmlDeviceDomMapper mapper = new DefaultXmlDeviceDomMapper();
+        XmlDeviceParser parser = new XmlDeviceParserDom(mapper);
+        Device device = parser.parse(ResourceHelper.getFilename("xml/valid_device.xml"));
         Device.Type deviceType = device.getType();
 
         assertEquals("id-1", device.getId());
@@ -30,5 +32,3 @@ public class XmlObjectMapperTest {
     }
 
 }
-
-
