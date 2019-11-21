@@ -12,7 +12,7 @@ import static org.junit.Assert.assertEquals;
 public class XmlDeviceParserDomTest {
 
     @Test
-    public void parseDevice(){
+    public void shouldParseDevice(){
         XmlDeviceDomMapper mapper = new DefaultXmlDeviceDomMapper();
         XmlDeviceParser parser = new XmlDeviceParserDom(mapper);
         Device device = parser.parse(ResourceHelper.getFilename("xml/valid_device.xml"));

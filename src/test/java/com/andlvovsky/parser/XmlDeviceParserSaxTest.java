@@ -10,7 +10,7 @@ import static org.junit.Assert.assertEquals;
 public class XmlDeviceParserSaxTest {
 
   @Test
-  public void parseDevice(){
+  public void shouldParseDevice(){
     XmlDeviceParser parser = new XmlDeviceParserSax();
     Device device = parser.parse(ResourceHelper.getFilename("xml/valid_device.xml"));
     Device.Type deviceType = device.getType();

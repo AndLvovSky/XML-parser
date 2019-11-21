@@ -8,7 +8,7 @@ import org.junit.Test;
 public class XmlXsdValidatorTest {
 
     @Test(expected = Test.None.class)
-    public void validateDevice() {
+    public void shouldNotThrowAnyExceptionWhenValidatingValidDevice() {
         XmlXsdValidator validator = new XmlXsdValidator();
         validator.validate(
             ResourceHelper.getFilename("xml/valid_device.xml"),
@@ -16,7 +16,7 @@ public class XmlXsdValidatorTest {
     }
 
     @Test(expected = XmlValidatorException.class)
-    public void deviceValidationFails() {
+    public void shouldThrowXmlValidatorExceptionWhenValidatingInvalidDevice() {
         XmlXsdValidator validator = new XmlXsdValidator();
         validator.validate(
             ResourceHelper.getFilename("xml/invalid_device.xml"),
