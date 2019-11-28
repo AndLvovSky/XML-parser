@@ -8,7 +8,6 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 public class XmlDeviceParserSaxTest {
-
   @Test
   public void shouldParseDevice(){
     XmlDeviceParser parser = new XmlDeviceParserSax();
@@ -27,5 +26,4 @@ public class XmlDeviceParserSaxTest {
     assertEquals(Device.Type.ComponentGroup.OUTPUT_DEVICE, deviceType.getComponentGroup());
     assertEquals(Device.Type.Port.VGA, deviceType.getPort());
   }
-
 }

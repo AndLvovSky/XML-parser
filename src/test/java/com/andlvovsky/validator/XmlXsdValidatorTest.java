@@ -6,7 +6,6 @@ import com.andlvovsky.util.ResourceHelper;
 import org.junit.Test;
 
 public class XmlXsdValidatorTest {
-
     @Test(expected = Test.None.class)
     public void shouldNotThrowAnyExceptionWhenValidatingValidDevice() {
         XmlXsdValidator validator = new XmlXsdValidator();
@@ -22,5 +21,4 @@ public class XmlXsdValidatorTest {
             ResourceHelper.getFilename("xml/invalid_device.xml"),
             ResourceHelper.getFilename("xsd/device.xsd"));
     }
-
 }

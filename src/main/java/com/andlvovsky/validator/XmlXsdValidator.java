@@ -12,7 +12,6 @@ import javax.xml.validation.SchemaFactory;
 import javax.xml.validation.Validator;
 
 public class XmlXsdValidator {
-    
     public void validate(String xmlFilename, String xsdFilename) {
         try {
             InputStream xmlInputStream = new FileInputStream(xmlFilename);
@@ -26,5 +25,4 @@ public class XmlXsdValidator {
             throw new XmlValidatorException("Validation failed", e);
         }
     }
-
 }

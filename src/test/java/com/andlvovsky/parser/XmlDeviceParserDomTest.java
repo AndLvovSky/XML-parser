@@ -1,8 +1,6 @@
 package com.andlvovsky.parser;
 
 import com.andlvovsky.domain.Device;
-import com.andlvovsky.mapper.DefaultXmlDeviceDomMapper;
-import com.andlvovsky.mapper.XmlDeviceDomMapper;
 import com.andlvovsky.util.ResourceHelper;
 
 import org.junit.Test;
@@ -10,11 +8,9 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 public class XmlDeviceParserDomTest {
-
     @Test
     public void shouldParseDevice(){
-        XmlDeviceDomMapper mapper = new DefaultXmlDeviceDomMapper();
-        XmlDeviceParser parser = new XmlDeviceParserDom(mapper);
+        XmlDeviceParser parser = new XmlDeviceParserDom();
         Device device = parser.parse(ResourceHelper.getFilename("xml/valid_device.xml"));
         Device.Type deviceType = device.getType();
 
@@ -30,5 +26,4 @@ public class XmlDeviceParserDomTest {
         assertEquals(Device.Type.ComponentGroup.OUTPUT_DEVICE, deviceType.getComponentGroup());
         assertEquals(Device.Type.Port.VGA, deviceType.getPort());
     }
-
 }

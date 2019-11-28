@@ -61,8 +61,6 @@ public class Device {
 		public void setPort(Port port) {
 			this.port = port;
 		}
-
-
 	}
 
 	private String id;
@@ -119,5 +117,4 @@ public class Device {
 	public void setType(Type type) {
 		this.type = type;
 	}
-
 }

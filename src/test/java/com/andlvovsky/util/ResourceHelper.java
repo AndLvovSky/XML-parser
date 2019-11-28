@@ -4,7 +4,6 @@ import java.net.URL;
 import java.net.URLDecoder;
 
 public class ResourceHelper {
-
     private ResourceHelper() {}
 
     public static String getFilename(String filename) {
@@ -18,5 +17,4 @@ public class ResourceHelper {
         }
         return filename;
     }
-
 }
