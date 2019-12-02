@@ -10,8 +10,13 @@ import static org.junit.Assert.assertEquals;
 public class XmlDeviceParserStaxTest {
   @Test
   public void shouldParseDevice(){
+    //given
     XmlDeviceParser parser = new XmlDeviceParserStax();
+
+    //when
     Device device = parser.parse(ResourceHelper.getFilename("xml/valid_device.xml"));
+
+    //then
     Device.Type deviceType = device.getType();
 
     assertEquals("id-1", device.getId());

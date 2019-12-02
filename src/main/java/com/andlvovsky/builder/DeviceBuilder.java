@@ -49,7 +49,7 @@ public class DeviceBuilder {
   public void setField(String name, String value) {
     BiConsumer<Device, String> fieldSetter = SETTERS.get(name);
     if (fieldSetter != null) {
-      SETTERS.get(name).accept(device, value);
+      fieldSetter.accept(device, value);
     }
   }
 
